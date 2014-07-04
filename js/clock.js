@@ -111,21 +111,36 @@
 	}
 	
 	function displayTimeInfo(){
-		timeDifference=calculateTimeDifference(localStorage['utc_offset'])
+	
+		if(localStorage['utc_offset']){
 		
-		var sign;
+		 var timezone=localStorage['timezone'];
+		 var screen_name=localStorage['screen_name'];
+		 timeDifference=calculateTimeDifference(localStorage['utc_offset'])
+
+		 }else{ //Neymar hardcoding hack
+		var timezone="Brasilia";
+		 var screen_name="neymarjr";
+		 timeDifference=calculateTimeDifference(-10800)
+
+		 }	
+	
+
+	
+		var sign="";
 		if(timeDifference<0){
 			sign=""
 		}else{
 			sign="+";
 		}
+		
 		 var timeDiffernceText=sign+("0"+timeDifference/3600).slice(-2)+":"+("0" + (timeDifference%3600)/60).slice(-2);
-		 
-	
-	     $('#timezone').text(localStorage['timezone']);
+		
+
+	     $('#timezone').text(timezone);
          $('#time_offset').text(timeDiffernceText);
          
-         var screen_name=localStorage['screen_name'];
+         
          
          $('#screen_name').html("Timezone <a href='http://twitter.com/" + screen_name + "'>@" + screen_name + "</a>");
          $("input#twid").val(screen_name);
