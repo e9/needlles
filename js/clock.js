@@ -14,7 +14,7 @@
 	
 	var openTime= new Date();
 	var datetime;
-	var timeDifference=-11;
+	var timeDifference=calculateTimeDifference(localStorage['utc_offset'])
 	var datetime =new Date();
 	var nightStarts=18;
 	var nightEnds=6;
@@ -28,15 +28,17 @@
 	
 	function initializeNeedle(){
 			datetime=new Date();
-
+			displayTimeInfo();
 			setInterval(actionInASec, 1000);
 
 	}
 	
 	$(function(){
 		initializeNeedle();
-
 });
+
+
+
 	
 	$(window).focus(function() {
 	$(".sec").clearQueue()
@@ -47,7 +49,7 @@
 	function actionInASec(){
 
 		datetime=new Date();
-		remoteDatetime.setHours(datetime.getHours()+timeDifference)
+		remoteDatetime.setTime(datetime.getTime()+timeDifference*1000)
 		var sec=openTime.getSeconds()+(datetime-openTime)/1000;
 		var min=datetime.getMinutes();
 		var hour=datetime.getHours();
@@ -76,7 +78,7 @@
 		formerHour=hour;
 		
 		var localHourDeg=hour*30+(min/60)*30;
-		var remoteHourDeg=(hour+timeDifference)*30+(min/60)*30;
+		var remoteHourDeg=remoteDatetime.getHours()*30+(min/60)*30;
 		
 		var radius=50;
 		var oX=50;
@@ -99,5 +101,34 @@
 		$(".long").transition({rotate:min*6+(datetime.getSeconds()/60)*6+"deg"},0);
 		$(".short.mine").transition({rotate:localHourDeg+"deg"},0);
 		$(".short.others").transition({rotate:remoteHourDeg+"deg"},0);
+		
+	}
+
+
+	function calculateTimeDifference(offset){
+		var date= new Date();
+		 return parseInt(offset)-date.getTimezoneOffset()*-60;
+		 
+	}
+	
+	function displayTimeInfo(){
+		var offsetInMin=calculateTimeDifference(localStorage['utc_offset']);
+		
+		var sign;
+		if(offsetInMin<0){
+			sign="-"
+		}else{
+			sign="+";
+		}
+		 var timerDifference=sign+("0"+offsetInMin/3600).slice(-2)+":"+("0" + (offsetInMin%3600)/60).slice(-2);
+		 
+	
+	     $('#timezone').text(localStorage['timezone']);
+         $('#time_offset').text(timerDifference);
+         
+         var screen_name=localStorage['screen_name'];
+         
+         $('#screen_name').html("Timezone <a href='http://twitter.com/" + screen_name + "'>@" + screen_name + "</a>");
+         $("input#twid").val(screen_name);
 		
 	}

@@ -18,14 +18,9 @@ var get_timezone = function(screen_name){
             var timezone = data.time_zone;
             var utc_offset = data.utc_offset;
             localStorage['screen_name'] = screen_name;
-            $('#screen_name').html("Timezone <a href='http://twitter.com/" + screen_name + "'>@" + screen_name + "</a>");
-
             localStorage['timezone'] = timezone;
-            $('#timezone').text(timezone);
-
             localStorage['utc_offset'] = utc_offset;
-            $('#time_offset').text(utc_offset);
-
+			displayTimeInfo();
 
             d.resolve(timezone);
         });
@@ -34,12 +29,18 @@ var get_timezone = function(screen_name){
     return d.promise();
 }
 
+function onStorageEvent(storageEvent){
+
+    alert("storage event");
+}
+
+window.addEventListener('storage', onStorageEvent, false);
 
 $(function(){
     $('#search').click(function(){
         var screen_name = $('#twid').val();
         get_timezone(screen_name).done(function(timezone){
-            alert(timezone);
+            //alert(timezone);
         });
     });
 });
