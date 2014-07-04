@@ -1,0 +1,180 @@
+*{
+		margin: 0;
+	padding: 0;
+	font-family: 'Lato', sans-serif;
+
+}
+
+html{
+height: 100%;
+
+}
+
+body{
+font-family: "Helvetica Neue","Calibri",Sans-serif;
+color: #4f4d4d;
+	background: url(../img/logo.png) 97% 4% no-repeat ,linear-gradient(to bottom, #e2e2e2 0%,#dbdbdb 75%,#d1d1d1 78%,#fefefe 100%) ; 
+	background-size: 20% auto,auto;
+height: 100%;
+
+}
+
+
+
+a{
+	color: #1a6e8d;
+}
+
+.clock{
+	position: relative;
+	width: 50%;
+	height: auto;
+	margin:  auto;
+	text-align: center;
+ 	top: 50%;
+    margin-top:0px;
+ 
+	}
+
+.clockremote{
+	position: absolute;
+	top:0;
+	left:0;
+  -webkit-clip-path: polygon(0 0, 0 0, 0 0);
+
+}
+
+
+	
+	
+.shine{
+	position: absolute;
+	top:0;
+	left:0;
+	width: 100%;
+	
+
+}
+
+.bottomshadow{
+	margin-top: -20px;
+	width: 100%;
+}
+
+	
+.short{
+	position: absolute;
+	top:18.3%;
+	left:45.45%;
+	-webkit-transform-origin: center 91%;
+	-moz-transform-origin: center 91%;
+	-o-transform-origin: center 91%;
+	-ms-transform-origin: center 91%;
+	transform-origin: center 91%;
+		width: 10%;
+
+	}
+
+
+
+.long{
+	position: absolute;
+	top:16.6%;
+	left:45.4%;
+	width: 10%;
+	-webkit-transform-origin: center 85.3%;
+	-moz-transform-origin: center 85.3%;
+	-o-transform-origin: center 85.3%;
+	-ms-transform-origin: center 85.3%;
+	transform-origin: center 85.3%;
+
+}
+  
+  
+  .sec{
+	position: absolute;
+	top:14.6333%;
+	left:45.452%;
+		width: 10%;
+	-webkit-transform-origin: center 84.9%;
+	-moz-transform-origin: center 84.9%;
+	-o-transform-origin: center 84.9%;
+	-ms-transform-origin: center 84.9%;
+	transform-origin: center 85.4%;
+
+}
+
+.shadow{
+	margin-top:8px;
+	opacity: 0.3;
+   filter: blur(2px);
+       -webkit-filter: blur(2px);
+       -moz-filter: blur(2px);
+       -o-filter: blur(2px);
+       -ms-filter: blur(2px);
+}
+
+#difference{
+	position: fixed;
+	bottom:0px;
+	left: 0px;
+	width: 66%;
+	margin: 2%;
+	
+}
+
+#difference h2{
+font-family: 'Lato', sans-serif;	
+font-weight: 300;
+	font-size: 11pt;
+	margin: 10px 0;
+	padding: 0;
+
+}
+
+#difference p{
+font-family: 'Lato', sans-serif;
+	font-weight: 600;
+	font-size: 14pt;
+	padding-left: 3px;
+}
+
+#form{
+	position: fixed;
+	bottom: 0px;
+	right: 0px;
+	width: 36%;
+	margin: 2%;
+	text-align: right;
+	line-height: 175%;
+}
+
+#form input{
+	background-color: #cccccc;
+	border: #979797 1px solid;
+	padding: 4px;
+	width: 100px;
+	color: #535e65;
+	border-radius: 0;
+	
+}
+
+#form button{
+	background-color: #7b8f9b;
+	border: 0;
+	border-radius: 0;
+	color: #FFF;
+	width: 56px;
+	margin:0 5px;
+	padding: 5px 13px;
+
+}
+
+#form button.button_location{
+	background: #666;
+	width: 172px;
+	padding: 4px 13px;
+
+	}
+
+
