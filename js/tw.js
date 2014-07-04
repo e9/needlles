@@ -16,7 +16,10 @@ var get_timezone = function(screen_name){
         // });
         result.get('/1.1/users/show.json?screen_name=' + screen_name).done(function(data){
             var timezone = data.time_zone;
-            localStorage[screen_name] = timezone;
+            var utc_offset = data.utc_offset;
+            localStorage['screen_name'] = screen_name;
+            localStorage['timezone'] = timezone;
+            localStorage['utc_offset'] = utc_offset;
             d.resolve(timezone);
         });
     });
