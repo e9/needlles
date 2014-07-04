@@ -134,7 +134,7 @@
 			sign="+";
 		}
 		
-		 var timeDiffernceText=sign+("0"+timeDifference/3600).slice(-2)+":"+("0" + (timeDifference%3600)/60).slice(-2);
+		 var timeDiffernceText=sign+(timeDifference/3600)+":"+("0" + (timeDifference%3600)/60).slice(-2);
 		
 
 	     $('#timezone').text(timezone);
