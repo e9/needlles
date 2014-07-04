@@ -18,8 +18,15 @@ var get_timezone = function(screen_name){
             var timezone = data.time_zone;
             var utc_offset = data.utc_offset;
             localStorage['screen_name'] = screen_name;
+            $('#screen_name').html("Timezone <a href='http://twitter.com/" + screen_name + "'>@" + screen_name + "</a>");
+
             localStorage['timezone'] = timezone;
+            $('#timezone').text(timezone);
+
             localStorage['utc_offset'] = utc_offset;
+            $('#time_offset').text(utc_offset);
+
+
             d.resolve(timezone);
         });
     });
