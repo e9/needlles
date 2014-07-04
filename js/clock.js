@@ -1,8 +1,8 @@
 /*時計を縦方向中央に表示する（奥出）*/
 	function setMiddle(){
-	　var img_width = $('.clocklocal').width();	
-		console.log(img_width);
-　	$('.clock').css('margin-top',-1*img_width/2);
+		var img_width = $('.clocklocal').width();	
+		// console.log(img_width);
+	$('.clock').css('margin-top',-1*img_width/2);
 	}
 	$(window).load(function(){
 		setMiddle();
@@ -93,7 +93,7 @@
 
 
 		
-		console.log(remoteHourX1+","+remoteHourY1+",,"+remoteHourX2+","+remoteHourY2)
+		// console.log(remoteHourX1+","+remoteHourY1+",,"+remoteHourX2+","+remoteHourY2)
 
 		$(".sec").transition({rotate:parseInt(sec)*6+0.5+"deg"},80).transition({rotate:"-=0.5deg"},20);
 		$(".long").transition({rotate:min*6+(datetime.getSeconds()/60)*6+"deg"},0);
