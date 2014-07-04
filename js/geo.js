@@ -22,7 +22,7 @@ if (navigator.geolocation) {
             success: function(timeZone) {
                 if (timeZone['status'] == 'OK') {
                     //add marker
-                    addList(pos.coords, timeZone);
+                    updatedMessage(pos.coords, timeZone);
                 } else {
                     //error
                     alert('status:' + timeZone['status']);
@@ -33,8 +33,7 @@ if (navigator.geolocation) {
 
     // 位置情報取得失敗時
     function (pos) { 
-            var location ="<li>GeoLocation Failure</li>";
-            document.getElementById("location").innerHTML = location;
+            alert('GeoLocation Failure');
     });
 }
 
@@ -47,14 +46,9 @@ function getTimeStamp(time)
     return Math.round(time / 1000);
 }
 
-function addList(coords, timeZone)
+function updatedMessage(coords, timeZone)
 {
     set_timezone(timeZone['timeZoneId']).done(function(){
         alert('Your time zone is updated.');
     });;
-
-    var contentString =
-        '<li>' + '自分のタイムゾーンID:　' + timeZone['timeZoneId'] + '</li>';
-
-    document.getElementById("location").innerHTML = contentString;
 }
