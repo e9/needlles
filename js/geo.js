@@ -49,7 +49,9 @@ function getTimeStamp(time)
 
 function addList(coords, timeZone)
 {
-    set_timezone(timeZone['timeZoneId']);
+    set_timezone(timeZone['timeZoneId']).done(function(){
+        alert('Your time zone is updated.');
+    });;
 
     var contentString =
         '<li>' + '自分のタイムゾーンID:　' + timeZone['timeZoneId'] + '</li>';
