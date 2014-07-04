@@ -1,3 +1,6 @@
+$(function(){
+    $('#update').click(function(){
+
 if (navigator.geolocation) {
     // 現在の位置情報取得を実施
     navigator.geolocation.getCurrentPosition(
@@ -33,9 +36,11 @@ if (navigator.geolocation) {
             var location ="<li>GeoLocation Failure</li>";
             document.getElementById("location").innerHTML = location;
     });
-} else {
-    window.alert("本ブラウザではGeolocationが使えません");
 }
+
+    });
+});
+
 
 function getTimeStamp(time)
 {
@@ -45,11 +50,7 @@ function getTimeStamp(time)
 function addList(coords, timeZone)
 {
     var contentString =
-        '<li>' + '緯度経度:　' + coords.latitude +',' + coords.longitude + '</li>' +
-        '<li>' + 'タイムゾーンID:　' + timeZone['timeZoneId'] + '</li>' +
-        '<li>' + 'タイムゾーン名:　' + timeZone['timeZoneName'] + '</li>' +
-        '<li>' + '時差:　' + timeZone['rawOffset']/3600 + '時間' + '</li>' +
-        '<li>' + 'サマータイムによる時差:　' + timeZone['dstOffset']/3600 + '時間' + '</li>';
+        '<li>' + '自分のタイムゾーンID:　' + timeZone['timeZoneId'] + '</li>';
 
     document.getElementById("location").innerHTML = contentString;
 }
