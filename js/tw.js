@@ -29,12 +29,6 @@ var get_timezone = function(screen_name){
     return d.promise();
 }
 
-function onStorageEvent(storageEvent){
-
-    alert("storage event");
-}
-
-window.addEventListener('storage', onStorageEvent, false);
 
 $(function(){
     $('#search').click(function(){

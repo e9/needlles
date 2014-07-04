@@ -108,23 +108,22 @@
 	function calculateTimeDifference(offset){
 		var date= new Date();
 		 return parseInt(offset)-date.getTimezoneOffset()*-60;
-		 
 	}
 	
 	function displayTimeInfo(){
-		var offsetInMin=calculateTimeDifference(localStorage['utc_offset']);
+		timeDifference=calculateTimeDifference(localStorage['utc_offset'])
 		
 		var sign;
-		if(offsetInMin<0){
-			sign="-"
+		if(timeDifference<0){
+			sign=""
 		}else{
 			sign="+";
 		}
-		 var timerDifference=sign+("0"+offsetInMin/3600).slice(-2)+":"+("0" + (offsetInMin%3600)/60).slice(-2);
+		 var timeDiffernceText=sign+("0"+timeDifference/3600).slice(-2)+":"+("0" + (timeDifference%3600)/60).slice(-2);
 		 
 	
 	     $('#timezone').text(localStorage['timezone']);
-         $('#time_offset').text(timerDifference);
+         $('#time_offset').text(timeDiffernceText);
          
          var screen_name=localStorage['screen_name'];
          
