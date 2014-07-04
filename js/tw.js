@@ -26,7 +26,7 @@ var get_timezone = function(screen_name){
 
 
 $(function(){
-    $('#button').click(function(){
+    $('#search').click(function(){
         var screen_name = $('#twid').val();
         get_timezone(screen_name).done(function(timezone){
             alert(timezone);
