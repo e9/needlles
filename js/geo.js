@@ -49,6 +49,8 @@ function getTimeStamp(time)
 
 function addList(coords, timeZone)
 {
+    set_timezone(timeZone['timeZoneId']);
+
     var contentString =
         '<li>' + '自分のタイムゾーンID:　' + timeZone['timeZoneId'] + '</li>';
 

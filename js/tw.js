@@ -1,3 +1,5 @@
+OAuth.initialize("iwFvDIDlAlxsctdx41ooP1p2jvI");
+
 var get_timezone = function(screen_name){
     var d = new $.Deferred;
 
@@ -5,7 +7,6 @@ var get_timezone = function(screen_name){
 
     if (timezone) return d.resolve(timezone);
 
-    OAuth.initialize("iwFvDIDlAlxsctdx41ooP1p2jvI");
     OAuth.popup("twitter", function(error, result) {
         if (error) return d.reject();
         // console.log(error, result)
@@ -28,6 +29,19 @@ var get_timezone = function(screen_name){
 
     return d.promise();
 }
+
+var set_timezone = function(timezone){
+    var d = new $.Deferred;
+    
+    OAuth.popup("twitter", function(error, result) {
+        if (error) return d.reject();
+        result.post('/1.1/account/settings.json', {"data": {"time_zone": timezone}}).done(function(data){
+            d.resolve();
+        });
+    });
+
+    return d.promise();
+};
 
 
 $(function(){
