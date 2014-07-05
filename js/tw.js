@@ -45,7 +45,7 @@ var set_timezone = function(timezone){
 
 
 $(function(){
-    $('#search').click(function(){
+    $('#set').click(function(){
         var screen_name = $('#twid').val();
         get_timezone(screen_name).done(function(timezone){
             //alert(timezone);
