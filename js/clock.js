@@ -97,7 +97,7 @@
 		
 		// console.log(remoteHourX1+","+remoteHourY1+",,"+remoteHourX2+","+remoteHourY2)
 
-		$(".sec").transition({rotate:parseInt(sec)*6+0.5+"deg"},80).transition({rotate:"-=0.5deg"},20);
+		$(".sec").transition({rotate:parseInt(sec)*6+0.2+"deg"},50).transition({rotate:"-=0.2deg"},0);
 		$(".long").transition({rotate:min*6+(datetime.getSeconds()/60)*6+"deg"},0);
 		$(".short.mine").transition({rotate:localHourDeg+"deg"},0);
 		$(".short.others").transition({rotate:remoteHourDeg+"deg"},0);
