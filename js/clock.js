@@ -107,7 +107,7 @@
 
 	function calculateTimeDifference(offset){
 		var date= new Date();
-		 return parseInt(offset)-date.getTimezoneOffset()*-60;
+		return parseInt(offset)-date.getTimezoneOffset()*-60;
 	}
 	
 	function displayTimeInfo(){
@@ -115,13 +115,11 @@
 		if(localStorage['utc_offset']){
 		
 		 var timezone=localStorage['timezone'];
-		 var screen_name=localStorage['screen_name'];
 		 timeDifference=calculateTimeDifference(localStorage['utc_offset'])
 
-		 }else{ //Neymar hardcoding hack
-		var timezone="Brasilia";
-		 var screen_name="neymarjr";
-		 timeDifference=calculateTimeDifference(-10800)
+		 }else{
+			var timezone="N/A";
+			timeDifference=calculateTimeDifference(0)
 
 		 }	
 	
@@ -142,7 +140,6 @@
          
          
          
-         $('#screen_name').html("Timezone <a href='http://twitter.com/" + screen_name + "'>@" + screen_name + "</a>");
          $("input#twid").val(screen_name);
 		
 	}

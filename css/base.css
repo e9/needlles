@@ -132,6 +132,15 @@ font-weight: 300;
 
 }
 
+#form h2{
+	font-family: 'Lato', sans-serif;	
+	font-weight: 300;
+		font-size: 11pt;
+		margin: 0px 0;
+		padding: 0;
+	
+	}
+
 #difference p{
 font-family: 'Lato', sans-serif;
 	font-weight: 600;
@@ -143,38 +152,16 @@ font-family: 'Lato', sans-serif;
 	position: fixed;
 	bottom: 0px;
 	right: 0px;
-	width: 36%;
 	margin: 2%;
-	text-align: right;
+	text-align: left;
 	line-height: 175%;
 }
 
-#form input{
-	background-color: #cccccc;
-	border: #979797 1px solid;
-	padding: 4px;
-	width: 100px;
-	color: #535e65;
-	border-radius: 0;
-	
+
+#form select{
+	padding: 3px 6px
 }
 
-#form button{
-	background-color: #7b8f9b;
-	border: 0;
-	border-radius: 0;
-	color: #FFF;
-	width: 56px;
-	margin:0 5px;
-	padding: 5px 13px;
 
-}
-
-#form button.button_location{
-	background: #666;
-	width: 172px;
-	padding: 4px 13px;
-
-	}
 
 

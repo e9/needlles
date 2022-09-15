@@ -1,54 +1,40 @@
 $(function(){
-    $('#update').click(function(){
-
-if (navigator.geolocation) {
-    // 現在の位置情報取得を実施
-    navigator.geolocation.getCurrentPosition(
-    // 位置情報取得成功時
-    function (pos) { 
-
-        var requestUrl =
-            'https://maps.googleapis.com/maps/api/timezone/' +
-            'json' +
-            '?location=' + pos.coords.latitude + ',' + pos.coords.longitude +
-            '&timestamp=' + getTimeStamp(new Date().getTime()) +
-            '&sensor=' + 'false' +
-            '&language=' + 'ja';
-
-        //request timezone
-        $.ajax({
-            url: requestUrl,
-            type: 'GET',
-            success: function(timeZone) {
-                if (timeZone['status'] == 'OK') {
-                    //add marker
-                    updatedMessage(pos.coords, timeZone);
-                } else {
-                    //error
-                    alert('status:' + timeZone['status']);
-                }
-            }
-        });
-    },
-
-    // 位置情報取得失敗時
-    function (pos) { 
-            alert('GeoLocation Failure');
+    var timezones = {}
+    let timezoneArray = moment.tz.names();
+    timezoneArray = timezoneArray.filter(function(value, index, array){ 
+       return !value.includes("Etc")
     });
-}
+
+
+
+    for(var index in timezoneArray){
+        const offset = moment.tz(timezoneArray[index]).utcOffset()
+        timezones[timezoneArray[index]] = offset
+    }
+
+    timezones = Object.fromEntries(
+        Object.entries(timezones).sort(([,a],[,b]) => a-b)
+    );
+
+    for(var key in timezones){
+        let offset = moment.tz(key).format('Z')
+        $('#timezones').append( $('<option value="'+key+'">'+key+' '+ offset + '</option>') );
+    }
+
+
+    $('#timezones').on('change',function(e) {
+        var value = $('[name=timezone]').val();
+        localStorage['timezone'] = value;
+        localStorage['utc_offset'] = timezones[value]*60;
+        displayTimeInfo();
 
     });
+
 });
+
 
 
 function getTimeStamp(time)
 {
     return Math.round(time / 1000);
-}
-
-function updatedMessage(coords, timeZone)
-{
-    set_timezone(timeZone['timeZoneId']).done(function(){
-        alert('Your time zone is updated.');
-    });;
 }

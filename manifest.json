@@ -2,7 +2,7 @@
 	"manifest_version": 2,
 	"name": "needlles",
 	"description": "clock for two",
-	"version": "0.86",
+	"version": "0.9",
 	"chrome_url_overrides": {
 		"newtab": "blank.html"
 	},
@@ -11,11 +11,8 @@
 		"128": "icon.png"
 	},
 	"permissions": [
-		    "http://*/*",
-		    "https://*/*"
 	],
     "externally_connectable": {
-            "matches": ["https://oauth.io/*"]
     },
 	"content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
 }

@@ -4,12 +4,14 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="js/moment.js"></script>
+    <script src="js/moment-timezone-with-data.min.js"></script>
+
     <script src="js/jquery.min.js" type="text/javascript"></script>
     <script src="js/jquery.transit.min.js"></script>
     <script src="js/clock.js" ></script>
     <script src="js/oauth.min.js"></script>
     <script src="js/geo.js" type="text/javascript"></script>
-    <script src="js/tw.js" ></script>
     <title>New Tab</title>
 
     <!-- Bootstrap -->
@@ -49,7 +51,7 @@
 </div>
 
 <div id="difference">
-<h2 id="screen_name">Timezone <a href="http://twitter.com/neymarjr">@neymarjr</a></h2>
+<h2 id="screen_name">Timezone</h2>
 <p id="timezone">-</p>
 <h2>Time Difference</h2>
 <p id="time_offset">-</p>
@@ -60,8 +62,10 @@
 </ul>
 
 <div id="form">
-    <p><button id="update" class="button_location">Update Your Location</button></p>
-    <p><input type="text" id="twid" value="neymarjr"><button id="set">Set</button></p>
+    <h2>Set Remote Timezone</h2>
+    <select id="timezones" name="timezone">
+    </select>
+
 </div>
 
 </body>
