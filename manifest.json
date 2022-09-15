@@ -1,8 +1,9 @@
 {
-	"manifest_version": 2,
-	"name": "needlles",
-	"description": "clock for two",
-	"version": "0.9",
+	"manifest_version": 3,
+	"name": "__MSG_appName__",
+	"description": "__MSG_appDesc__",
+	"default_locale": "en",
+	"version": "0.90",
 	"chrome_url_overrides": {
 		"newtab": "blank.html"
 	},
@@ -12,7 +13,7 @@
 	},
 	"permissions": [
 	],
-    "externally_connectable": {
-    },
-	"content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+	"content_security_policy":{
+		"extension_pages": "script-src 'self' ; object-src 'self'"
+	}
 }
