@@ -1,9 +1,6 @@
 $(function(){
     var timezones = {}
-    let timezoneArray = moment.tz.names();
-    timezoneArray = timezoneArray.filter(function(value, index, array){ 
-       return !value.includes("Etc")
-    });
+    let timezoneArray = Intl.supportedValuesOf('timeZone')
 
 
 
@@ -16,6 +13,7 @@ $(function(){
         Object.entries(timezones).sort(([,a],[,b]) => a-b)
     );
 
+    
     for(var key in timezones){
         let offset = moment.tz(key).format('Z')
         $('#timezones').append( $('<option value="'+key+'">'+key+' '+ offset + '</option>') );
